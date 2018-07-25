@@ -8640,4 +8640,9 @@ body {
   border: 0;
 }
 
+iframe {
+  width: 100% !important;
+  height: auto !important;
+}
+
 /*# sourceMappingURL=style.css.map */
