@@ -1,0 +1,22 @@
+
+<% include ../partials/header %>
+<% include ../partials/nav %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-3">
+                <img src="<%= post.featured_img %>" alt="" class="img-fluid mb-4">
+                <div class="card-body p-5">
+
+                    <h1><%= post.title %></h1>
+                    <h6><small>in <a href="#"><%= post.category %></a> by <a href="#"><%= post.author %></a> Jun 26</small></h6>
+                    <p><%- post.content %></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

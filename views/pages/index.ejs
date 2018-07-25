@@ -1,0 +1,59 @@
+
+<% include ../partials/header %>
+<% include ../partials/nav %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <% var headlinePost = posts.shift(); %>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="<%= headlinePost.featured_img %>" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                            <h2><a href="/post/<%= headlinePost.slug %>"><%= headlinePost.title %></a></h2>
+                            <h6><small>in <a href="#"><%= headlinePost.category %></a> by <a href="#"><%= headlinePost.author %></a> Jun 26</small></h6>
+                            <p><%= headlinePost.content %> <a href="/post/<%= headlinePost.slug %>">[...]</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% posts.forEach(function(post){ %>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="<%= post.featured_img %>" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-md-9">
+                                <h4><a href="/post/<%= post.slug %>"><%= post.title %></a></h4>
+                                <h6><small>in <a href="#"><%= post.category %></a> by <a href="#"><%= post.author %></a> Jun 26</small></h6>
+                                <p><%= post.content %> <a href="<%= post.slug %>">[..].</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+
+        </div>
+        <div class="col-md-4">
+            <div class="list-group">
+                <% latestPosts.forEach(function(latestPost){ %>
+                    <a href="/post/<%= latestPost.slug %>" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1"><%= latestPost.title %></h5>
+                            <small>3 days ago</small>
+                        </div>
+                        <p class="mb-1"><%= latestPost.content %></p>
+                        <small>By <%= latestPost.author %></small>
+                    </a>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
